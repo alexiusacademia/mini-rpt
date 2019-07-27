@@ -61,6 +61,14 @@ def write(obj, _row, file_name, td_num='', tp_name='', wb=None, ws=None):
     border_hat.set_align('top')
     border_hat.set_font_name('Times New Roman')
 
+    border_hat_center = wb.add_format()
+    border_hat_center.set_top()
+    border_hat_center.set_right()
+    border_hat_center.set_left()
+    border_hat_center.set_align('top')
+    border_hat_center.set_align('center')
+    border_hat_center.set_font_name('Times New Roman')
+
     border_hat_numeric = wb.add_format()
     border_hat_numeric.set_top()
     border_hat_numeric.set_right()
@@ -107,6 +115,12 @@ def write(obj, _row, file_name, td_num='', tp_name='', wb=None, ws=None):
     border_sides.set_right()
     border_sides.set_font_name('Times New Roman')
 
+    border_sides_center = wb.add_format()
+    border_sides_center.set_left()
+    border_sides_center.set_right()
+    border_sides_center.set_align('center')
+    border_sides_center.set_font_name('Times New Roman')
+
     border_sides_numeric = wb.add_format()
     border_sides_numeric.set_left()
     border_sides_numeric.set_right()
@@ -137,9 +151,9 @@ def write(obj, _row, file_name, td_num='', tp_name='', wb=None, ws=None):
 
     for index, years_due in enumerate(obj['years_dues']):
         if index == 0:
-            ws.write(index + _row, 5, years_due, border_hat)
+            ws.write(index + _row, 5, years_due, border_hat_center)
         else:
-            ws.write(index + _row, 5, years_due, border_sides)
+            ws.write(index + _row, 5, years_due, border_sides_center)
 
     for index, taxes_due in enumerate(obj['taxes_dues']):
         if index == 0:
