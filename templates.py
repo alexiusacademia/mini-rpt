@@ -1,7 +1,7 @@
-def get_table(*assessed_values, current_year: int, last_payment=1984):
+def get_table(assessed_values=[], current_year: int = 2019, last_payment=1984):
     _tax_dues = []
 
-    for assessed_value in assessed_values:
+    for index, assessed_value in enumerate(assessed_values):
         _tax_dues.append(assessed_value * 0.01)
 
     _old_rows = 3
